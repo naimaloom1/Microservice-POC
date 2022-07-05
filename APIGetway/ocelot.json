@@ -1,0 +1,140 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/User",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.102.27.19",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/User",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "contacts"
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.102.27.19",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/User/{id}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/CheckHealth",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.102.27.19",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/User/CheckHealth",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserKYC/CheckHealth",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.83.131.45",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/UserKYC/CheckHealth",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserKYC",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.83.131.45",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/UserKYC",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserKYC/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.83.131.45",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/UserKYC/{id}",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserKYC/GetUser/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.83.131.45",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/UserKYC/GetUser/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserKYC/GetPendingApproval",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.83.131.45",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/UserKYC/GetPendingApproval",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserKYC/GetApprovalStatus",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.83.131.45",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/UserKYC/GetApprovalStatus",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserKYC/GetApprovalPending",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "20.83.131.45",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/UserKYC/GetApprovalPending",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "contacts",
+      "Config": [
+        {
+          "Name": "Contacts API",
+          "Version": "v1",
+          "Url": "http://localhost:49158/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    //"BaseUrl": "http://localhost"
+  }
+}

@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  webui:
+    image: ${DOCKER_REGISTRY-}webui
+    build:
+      context: .
+      dockerfile: WebUI\Dockerfile
+
+  userservice:
+    image: ${DOCKER_REGISTRY-}userservice
+    build:
+      context: .
+      dockerfile: UserService\Dockerfile
+
+
+  kycservice:
+    image: ${DOCKER_REGISTRY-}kycservice
+    build:
+      context: .
+      dockerfile: KYCService\Dockerfile
+
+
+  apigetway:
+    image: ${DOCKER_REGISTRY-}apigetway
+    build:
+      context: .
+      dockerfile: APIGetway\Dockerfile
+

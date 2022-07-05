@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-deploy
+spec:
+  selector:
+    matchLabels:
+      app: user-pod
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: user-pod
+    spec:    
+      imagePullSecrets:
+      - name: acr-secret
+      containers:
+      - name: user-container
+        image: acrusermicroservice.azurecr.io/userservice:latest
+        imagePullPolicy: Always
+        resources:
+        env:
+           - name: DB_CONNECTION
+             value: "Server=tcp:poclogicalinstance.database.windows.net,1433;Initial Catalog=microservicedb;Persist Security Info=False;User ID=saadmin;Password=Pocdb@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+        ports:
+        - containerPort: 80   
+
