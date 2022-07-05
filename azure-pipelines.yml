@@ -1,0 +1,59 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    strategy:
+     maxParallel: 0
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'docker-registry'
+        repository: 'mudgilsks/kycservice'
+        command: 'buildAndPush'
+        Dockerfile: '**/KYCService/Dockerfile'
+        tags: '$(tag)'
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: '**/KYCService/*.yaml'
+        TargetFolder: '$(build.artifactstagingdirectory)'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+# - stage: Deploy
+#   displayName: Deploy image
+#   jobs:
+#   - job: Deploy
+#     displayName: Deploy
+#     pool:
+#       vmImage: 'ubuntu-latest'
+#     steps:
+#     - task: DownloadPipelineArtifact@2
+#       inputs:
+#         buildType: 'current'
+#         artifactName: 'drop'
+#         itemPattern: '**/KYCService/*.yaml'
+#         targetPath: '$(System.ArtifactsDirectory)'
+      
+    
+        
