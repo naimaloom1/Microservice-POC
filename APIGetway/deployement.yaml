@@ -16,7 +16,7 @@ spec:
       - name: acr-secret
       containers:
       - name: kyc-container
-        image: acrapigetway.azurecr.io/apigetway:latest
+        image: pocregistr.azurecr.io/apigetway:latest
         imagePullPolicy: Always
         resources:
         env:
