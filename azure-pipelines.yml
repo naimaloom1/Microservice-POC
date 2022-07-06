@@ -21,7 +21,7 @@ stages:
      maxParallel: 0
     displayName: Build
     pool:
-      vmImage: 'ubuntu-latest'
+      name: myagent
     steps:
     - task: Docker@2
       inputs:
